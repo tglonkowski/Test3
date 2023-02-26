@@ -1,0 +1,4 @@
+Kwadrat 10
+Kolo 20
+Prostokat 10 20
+Kwadrat 15
