@@ -1,32 +1,35 @@
 package task3;
 
+import task3.file.FileService;
+
 import java.util.Arrays;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<Figura> figury = Arrays.asList(Figura.stworzKwadrat(10), Figura.stworzKolo(20), Figura.stworzProstokat(10, 20),
-                Figura.stworzKwadrat(15));
-        for (Figura f : figury) {
+        List<Figure> figures = Arrays.asList(Figure.createSquare(10), Figure.createWheel(20), Figure.createRectangle(10, 20),
+                Figure.createSquare(15));
+        for (Figure f : figures) {
             System.out.println(f);
         }
 
         System.out.println();
-        System.out.println(Figura.figuraZNajwiekszymObwodem(figury));
-        System.out.println(Figura.figuraZNajwiekszymPolem(figury));
+        System.out.println(Figure.figureWithTheMostCircuit(figures));
+        System.out.println(Figure.figureWithTheMostArea(figures));
 
         System.out.println();
-        System.out.println(figury.contains(new Kwadrat(10)));
+        System.out.println(figures.contains(new Square(10)));
         System.out.println();
 
 //        System.out.println("Sortowanie:");
-//        Collections.sort(figury);
-//        System.out.println(figury);
+//        Collections.sort(figures);
+//        System.out.println(figures);
 //        System.out.println("Sortowanie po kryterium:");
 //        Figura.ustalDomyslneSortowanie(Figura.KRYTERUM_NAZWA);
-//        Collections.sort(figury);
+//        Collections.sort(figures);
 //
-//        System.out.println(figury);
-        Figura.zapiszFiguryDoPliku(figury);
+//        System.out.println(figures);
+        FileService fileService = new FileService();
+        fileService.saveFiguresToFile(figures);
     }
 }
